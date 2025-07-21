@@ -1,0 +1,11 @@
+この問題では画像ファイルが与えられている。
+その他に文字列やコードは与えられていないため、ステガノグラフィにより画像に暗号が埋め込まれていると推察。
+steghide extract -sf atbash.jpg
+上記のコマンドにより画像に組み込まれた情報を取り出すことができる。
+以下が結果
+krxlXGU{zgyzhs_xizxp_8z0uvwwx}
+先頭をpに合わせてrot暗号での解読を試みるが
+pwcqCLZ{eldemx_cnecu_8e0zabbc}　となりflagではない。
+配布画像を見てみると円形にアルファベットが逆順に組み合わせられていることがわかる。
+そのためa>z b>y のように逆順に入れ替える。
+するとpicoCTF{atbash_crack_8a0feddc}となりflagが得られる。
