@@ -1,0 +1,33 @@
+def calculate_d(e, phi_n):
+    result=False
+    d = pow(e, -1, phi_n)
+    if (e * d) % phi_n == 1:
+        result=True
+    return d,result
+
+def calculate_m(c,d,n):
+    m=pow(c,d,n)
+    return m
+
+def transform(m):
+    byte_data = m.to_bytes((m.bit_length() + 7) // 8, byteorder='big')
+    try:
+        text = byte_data.decode('utf-8')
+    except UnicodeDecodeError:
+        text = byte_data.decode('utf-8', errors='replace')
+    return text
+
+p=int(input("p:"))
+q=int(input("q:"))
+e=int(input("e:"))
+c=int(input("c:"))
+
+n=p*q
+phi_n=(p-1)*(q-1)
+d,result=calculate_d(e,phi_n)
+if(result):
+    m=calculate_m(c,d,n)
+    text=transform(m)
+    print("result:"+text)
+else:
+    print("error")
