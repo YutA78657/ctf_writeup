@@ -11,7 +11,7 @@ pairs = [
 xs = [pow(int(m,16), e) - c for m, c in pairs]
 n = reduce(gcd, xs)
 r=2
-c=input("c:")
+c=int(input("c:"))
 if(gcd(n,r)==1):
     C=c*r**e%n
     print("C:",C)
